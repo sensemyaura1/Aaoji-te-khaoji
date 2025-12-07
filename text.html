@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AAOJi ते KHAOJi – Mall Road, Solan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="AAOJi ते KHAOJi – Popular vegetarian restaurant on Mall Road, Solan, Himachal Pradesh. View menu highlights, reviews, timings and contact details." />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #fffaf6;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    a { color: #e65100; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      background: linear-gradient(135deg, #f57c00, #ffb74d);
+      color: #fff;
+      padding: 1rem 1.25rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .hero {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 2rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 2.1rem;
+      margin-bottom: 0.5rem;
+      color: #bf360c;
+    }
+
+    .hero-sub {
+      font-size: 0.98rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .tag {
+      font-size: 0.8rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: #fff3e0;
+      border: 1px solid #ffe0b2;
+      color: #e65100;
+      font-weight: 500;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background: #e65100;
+      color: #fff;
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      color: #e65100;
+      border: 1px solid #ffb74d;
+    }
+
+    .hero-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.25rem;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    }
+
+    .hero-card h2 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: #bf360c;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .info-row {
+      font-size: 0.9rem;
+      margin: 0.3rem 0;
+    }
+
+    .label {
+      font-weight: 600;
+      color: #555;
+      display: inline-block;
+      min-width: 80px;
+    }
+
+    main { max-width: 1080px; margin: 0 auto 2.5rem; padding: 0 1.25rem; }
+
+    section {
+      margin-top: 2rem;
+    }
+
+    section h2 {
+      font-size: 1.4rem;
+      color: #bf360c;
+      margin-bottom: 0.75rem;
+      position: relative;
+    }
+
+    section h2::after {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: #ffb74d;
+      margin-top: 0.25rem;
+      border-radius: 999px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 1.2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+      font-size: 0.95rem;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+    }
+
+    .pill {
+      font-size: 0.8rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: #fbe9e7;
+      color: #d84315;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-top: 0.7rem;
+    }
+
+    .menu-item {
+      background: #fff;
+      border-radius: 10px;
+      padding: 0.7rem 0.8rem;
+      border: 1px solid #ffe0b2;
+      font-size: 0.9rem;
+    }
+
+    .menu-item-title {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .price {
+      font-weight: 600;
+      color: #e65100;
+      font-size: 0.85rem;
+    }
+
+    .gallery-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 0.7rem;
+    }
+
+    .gallery-placeholder {
+      background: linear-gradient(135deg, #ffe0b2, #fff3e0);
+      border-radius: 10px;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: #bf360c;
+      text-align: center;
+      padding: 0.4rem;
+    }
+
+    .review-highlight {
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .review-meta {
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+      gap: 1.5rem;
+    }
+
+    .map-box {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 0.9rem;
+      border: 1px solid #ffe0b2;
+      font-size: 0.86rem;
+    }
+
+    .map-box small { color: #777; }
+
+    footer {
+      border-top: 1px solid #ffe0b2;
+      padding: 1rem 1.25rem 1.5rem;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #777;
+      background: #fff8e1;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 1.8rem;
+      }
+      .two-col, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Top navigation -->
+  <header>
+    <div class="nav">
+      <div class="logo">AAOJi ते KHAOJi</div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#specials">Specials</a>
+        <a href="#menu">Menu</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#visit">Visit</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero section -->
+  <section class="hero" id="top">
+    <div>
+      <h1>Good Food, Good Mood on Mall Road</h1>
+      <p class="hero-sub">
+        Popular vegetarian restaurant opposite Hanuman Mandir, serving North Indian, South Indian, chaat, snacks, desserts and more in the heart of Solan. [web:5][web:6]
+      </p>
+      <div class="hero-tags">
+        <span class="tag">Veg & vegan options</span>
+        <span class="tag">₹1–200 per person</span>
+        <span class="tag">Open daily 10 AM – 9–10 PM</span> <!-- hours vary slightly by source [web:1][web:16] -->
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="tel:+919816022101">Call to order</a> <!-- phone from Shuru profile [web:5] -->
+        <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=AAOJi+te+KHAOJi+Solan" target="_blank" rel="noopener">
+          Get directions
+        </a>
+        <a class="btn btn-outline" href="https://www.swiggy.com/city/solan/aao-ji-te-khao-ji-rajgarh-road-mall-road-solan-rest205181" target="_blank" rel="noopener">
+          Order online
+        </a>
+      </div>
+    </div>
+
+    <aside class="hero-card">
+      <h2>Restaurant Info</h2>
+      <p class="info-row">
+        <span class="label">Cuisine</span>
+        <span>Indian, South Indian, Chaat, Fast food, Desserts</span> <!-- [web:6][web:8][web:10] -->
+      </p>
+      <p class="info-row">
+        <span class="label">Address</span>
+        <span>Opposite Hanuman Mandir, Mall Road, Bajoral Khurd, Solan, Himachal Pradesh 173212</span> <!-- [web:5][web:16] -->
+      </p>
+      <p class="info-row">
+        <span class="label">Phone</span>
+        <a href="tel:+919816022101">+91 98160 22101</a>
+      </p>
+      <p class="info-row">
+        <span class="label">Timings</span>
+        <span>Mon–Sun · 10:00 AM – 10:00 PM</span> <!-- [web:1][web:5][web:16] -->
+      </p>
+      <p class="info-row">
+        <span class="label">Budget</span>
+        <span>Approx ₹1–200 per person</span> <!-- Google listing note -->
+      </p>
+    </aside>
+  </section>
+
+  <main>
+    <!-- About & Highlights -->
+    <section id="about">
+      <div class="two-col">
+        <div class="card">
+          <h2>About the restaurant</h2>
+          <p>
+            AAOJi ते KHAOJi is a well-known Indian restaurant in Solan, popular with both locals and travellers for quick, tasty and hygienic vegetarian meals. [web:5][web:17]
+          </p>
+          <p>
+            Guests appreciate the homely flavours, quick service and casual atmosphere, making it a convenient stop on Mall Road for breakfast, lunch, snacks or dinner. [web:1][web:17]
+          </p>
+          <div class="pill-list">
+            <span class="pill">Family-friendly</span>
+            <span class="pill">Casual dining</span>
+            <span class="pill">Takeaway</span>
+            <span class="pill">Order via apps</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Why people visit</h2>
+          <ul style="padding-left:1rem; font-size:0.93rem;">
+            <li>Wide variety: chaat, South Indian, North Indian mains, sweets and desserts at one place. [web:6][web:10][web:17]</li>
+            <li>Central location on Mall Road, easy to combine with shopping or evening walks. [web:5][web:16]</li>
+            <li>Good option for pure-veg eaters, with some vegan-friendly choices when requested. [web:10][web:17]</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specials & Menu highlight -->
+    <section id="specials">
+      <div class="two-col">
+        <div class="card">
+          <h2>House specials</h2>
+          <p>
+            Different platforms highlight popular picks such as masala dosa, vada pav, chaat items like samosa and bhalla, kadi chawal and Indian sweets. [web:10][web:17]
+          </p>
+          <div class="menu-grid">
+            <div class="menu-item">
+              <div class="menu-item-title">Masala Dosa</div>
+              <div>Classic South Indian dosa served crisp with chutneys and sambar.</div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-title">Chaat Platter</div>
+              <div>Samosa or bhalla chaat with tangy chutneys and curd.</div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-title">Kadi Chawal</div>
+              <div>Comforting North Indian kadi with rice, often praised in reviews.</div>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item-title">Indian Desserts</div>
+              <div>Rasgulla, rajbhog, rasmalai and more, depending on the day.</div> <!-- desserts seen on Swiggy [web:3] -->
+            </div>
+          </div>
+        </div>
+
+        <div class="card" id="menu">
+          <h2>Menu & prices</h2>
+          <p>
+            The menu covers breakfast items, South Indian dishes, North Indian mains, Chinese-style snacks and a dessert/sweets section. [web:6][web:12]
+          </p>
+          <p>
+            Individual items are typically priced within an affordable range, with many snacks and desserts around tens of rupees and full plates or thalis still keeping the overall spend near ₹1–200 per person. [web:3][web:6]
+          </p>
+          <p style="margin-top:0.4rem;">
+            For the full, updated menu with exact prices, check:
+          </p>
+          <ul style="padding-left:1rem; font-size:0.9rem;">
+            <li><a href="https://magicpin.in/Solan/Solan/Restaurant/Aao-Ji-Te-Khao-Ji/store/337a66/menu/?menu=Food+Menu" target="_blank" rel="noopener">Magicpin – Food menu</a> [web:12]</li>
+            <li><a href="https://www.swiggy.com/city/solan/aao-ji-te-khao-ji-rajgarh-road-mall-road-solan-rest205181" target="_blank" rel="noopener">Swiggy – Online ordering</a> [web:3]</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery placeholders -->
+    <section id="gallery">
+      <div class="card">
+        <h2>Photo gallery</h2>
+        <p>
+          Add your own food and ambience photos here; currently, images of thalis, sweets and snacks are visible on delivery and social platforms. [web:3][web:4]
+        </p>
+        <div class="gallery-strip">
+          <div class="gallery-placeholder">Upload interior photo</div>
+          <div class="gallery-placeholder">Upload thali / dosa photo</div>
+          <div class="gallery-placeholder">Upload sweets counter photo</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews">
+      <div class="two-col">
+        <div class="card">
+          <h2>What guests say</h2>
+          <p class="review-highlight">
+            Many visitors call it a “must visit” eatery in Solan, highlighting tasty samosa chaat, bhalla chaat and kadi chawal with quick, hygienic service. [web:17]
+          </p>
+          <p class="review-highlight">
+            On other platforms, guests mention enjoying items like masala dosa, vada pav and homely North Indian food at reasonable prices. [web:1][web:10]
+          </p>
+          <p class="review-meta">
+            Ratings vary slightly by platform but are generally positive, often around the mid to high 3–4 star range out of 5. [web:1][web:5][web:8]
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>See live ratings</h2>
+          <p style="font-size:0.9rem;">
+            For latest ratings, photos and detailed reviews, visit:
+          </p>
+          <ul style="padding-left:1rem; font-size:0.9rem;">
+            <li><a href="https://restaurant-guru.in/AAOJi-%E0%A4%A4%E0%A5%87-KHAOJi-Solan" target="_blank" rel="noopener">Restaurant Guru listing</a> [web:10]</li>
+            <li><a href="https://shuru.co.in/profile/slg-aaoji-te-khaoji-indian-restaurant-himachal-pradesh-gwbed" target="_blank" rel="noopener">Shuru profile</a> [web:5]</li>
+            <li>Google “AAOJi ते KHAOJi Solan reviews” for Google ratings and photos. [web:16]</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visit / Contact -->
+    <section id="visit">
+      <div class="contact-grid">
+        <div class="card">
+          <h2>Visit & contact</h2>
+          <p class="info-row">
+            <span class="label">Address</span>
+            <span>Opposite Hanuman Mandir, Mall Road, Bajoral Khurd, Solan, Himachal Pradesh 173212</span> <!-- [web:5][web:16] -->
+          </p>
+          <p class="info-row">
+            <span class="label">Phone</span>
+            <a href="tel:+919816022101">+91 98160 22101</a> · <a href="tel:+911792257101">+91 1792 257101</a> <!-- second number from Facebook Aaoji restaurant, if shared brand [web:15] -->
+          </p>
+          <p class="info-row">
+            <span class="label">Hours</span>
+            <span>Every day · 10:00 AM – 10:00 PM (check online on holidays)</span> <!-- [web:1][web:5][web:16] -->
+          </p>
+          <p class="info-row">
+            <span class="label">Services</span>
+            <span>Dine-in, takeaway, and app-based delivery (no formal reservations needed).</span> <!-- inferred from ordering platforms [web:3][web:8] -->
+          </p>
+          <div style="margin-top:0.7rem;">
+            <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=AAOJi+te+KHAOJi+Solan" target="_blank" rel="noopener">Open in Google Maps</a>
+            <a class="btn btn-outline" href="mailto:">Email (add your ID)</a>
+          </div>
+        </div>
+
+        <div class="map-box">
+          <strong>How to reach</strong>
+          <p>
+            Located on Mall Road in Solan, directly across from Hanuman Mandir; it is walkable from most points in central Solan and easily reachable by local transport. [web:5][web:16]
+          </p>
+          <p>
+            Use “AAOJi ते KHAOJi Mall Road Solan” in navigation apps for precise directions and parking options nearby. [web:16]
+          </p>
+          <small>You can embed a live Google Map here using an iframe when you connect this layout to your real domain.</small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © AAOJi ते KHAOJi, Mall Road, Solan, Himachal Pradesh · Layout demo – replace text and links with your official details as needed.
+  </footer>
+</body>
+</html>
